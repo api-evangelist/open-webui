@@ -3,21 +3,52 @@ url: https://raw.githubusercontent.com/api-evangelist/open-webui/refs/heads/main
 name: Open WebUI
 x-type: company
 description: >-
-  Open WebUI is a feature-rich, user-friendly self-hosted UI for LLMs supporting Ollama, OpenAI-compatible servers, RAG, and tool/function calling.
+  Open WebUI is a self-hosted, open-source web UI for LLMs (notably Ollama and OpenAI-compatible
+  backends). It exposes a REST API for chats, models, prompts, knowledge (RAG), users, and tools.
+  Distributed under a modified BSD-3-Clause license; primarily run via Docker or pip on your own
+  infrastructure.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - AI
   - LLM
-  - Self-Host
   - Open Source
-  - UI
+  - Self-Hosted
+  - Ollama
+  - Chat UI
+  - RAG
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - aid: open-webui:platform
+    name: Open WebUI API
+    description: >-
+      REST API exposed by a self-hosted Open WebUI instance. Endpoints cover chat completions (proxying
+      upstream backends like Ollama or OpenAI-compatible servers), models, prompts, knowledge bases,
+      files, RAG, users, auth, and tools. Authentication uses the Open WebUI session token or per-user API
+      keys. The base URL is wherever you deploy Open WebUI (commonly http://localhost:3000/api/v1).
+    humanURL: https://docs.openwebui.com/getting-started/api-endpoints
+    baseURL: http://localhost:3000/api/v1
+    tags:
+      - Chat
+      - Models
+      - Prompts
+      - RAG
+      - Knowledge
+      - Tools
+    properties:
+      - type: Documentation
+        url: https://docs.openwebui.com/
+      - type: GitHub
+        url: https://github.com/open-webui/open-webui
+      - type: Reference
+        url: https://docs.openwebui.com/getting-started/api-endpoints
 common:
   - type: Website
     url: https://openwebui.com/
+  - type: DeveloperPortal
+    url: https://docs.openwebui.com/
+  - type: OpenSource
+    url: https://github.com/open-webui/open-webui
   - type: Plans
     url: plans/open-webui-plans-pricing.yml
   - type: RateLimits

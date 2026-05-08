@@ -5,31 +5,43 @@ provider: Open WebUI
 providerId: open-webui
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
-- AI
 - LLM
-- Self-Host
 - Open Source
-- UI
+- Self-Hosted
+- Ollama
+- Chat UI
+- RAG
 - Rate Limiting
 - Quotas
 - Throttling
-description: Placeholder rate-limit artifact for Open WebUI. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+description: >-
+  Open WebUI does not impose project-level API rate limits. Effective limits are determined by (1) the
+  upstream LLM backend's limits (Ollama concurrency, or OpenAI/Anthropic RPM caps) and (2) any
+  reverse-proxy or admin throttling configured in the deployment. Standard HTTP semantics apply.
+notes: No built-in rate limits; effective limits come from upstream LLM and your reverse proxy.
 sources:
-- https://openwebui.com/
+- https://docs.openwebui.com/
+- https://github.com/open-webui/open-webui
 responseCodes:
   throttled: 429
 limits:
-- name: Default
-  scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+- name: Project-level
+  scope: n/a
+  metric: n/a
+  limit: no built-in cap
+  notes: Open WebUI itself does not throttle; configure at reverse proxy if needed.
+- name: Upstream LLM backend
+  scope: external
+  metric: requests
+  limit: backend-defined
+  notes: Ollama concurrency or OpenAI/Anthropic RPM caps apply.
 policies:
-- name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+- name: Reverse-Proxy Throttling
+  description: Use Nginx/Caddy/Traefik in front of Open WebUI to enforce per-IP or per-user limits if needed.
+- name: Backend Concurrency
+  description: Tune Ollama OLLAMA_NUM_PARALLEL or OPENAI_API_BASE_URLS to spread load.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
