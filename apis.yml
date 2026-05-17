@@ -1,7 +1,7 @@
 aid: open-webui
 url: https://raw.githubusercontent.com/api-evangelist/open-webui/refs/heads/main/apis.yml
 name: Open WebUI
-x-type: company
+kind: company
 description: >-
   Open WebUI is a self-hosted, open-source web UI for LLMs (notably Ollama and OpenAI-compatible
   backends). It exposes a REST API for chats, models, prompts, knowledge (RAG), users, and tools.
