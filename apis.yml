@@ -43,6 +43,8 @@ apis:
       - type: Reference
         url: https://docs.openwebui.com/getting-started/api-endpoints
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/open-webui
   - type: Website
     url: https://openwebui.com/
   - type: DeveloperPortal
