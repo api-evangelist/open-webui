@@ -1,0 +1,162 @@
+openapi: 3.1.0
+info:
+  title: Open WebUI API
+  description: |
+    REST API exposed by a self-hosted Open WebUI instance. Endpoints include an
+    OpenAI-compatible chat completions surface, an Anthropic-compatible messages
+    endpoint, and a passthrough proxy for native Ollama endpoints. Authentication
+    uses a Bearer token (Open WebUI session token or a per-user API key); each
+    API key inherits the permissions of the user who created it.
+  version: "1.0.0"
+  contact:
+    name: Open WebUI Documentation
+    url: https://docs.openwebui.com/
+servers:
+  - url: http://localhost:3000
+    description: Default local Open WebUI deployment
+  - url: https://{host}
+    description: User-deployed Open WebUI instance
+    variables:
+      host:
+        default: openwebui.example.com
+security:
+  - BearerAuth: []
+tags:
+  - name: Chat
+  - name: Anthropic
+  - name: Ollama
+paths:
+  /api/chat/completions:
+    post:
+      tags: [Chat]
+      summary: Chat completions (OpenAI-compatible)
+      description: |
+        OpenAI-compatible chat completions endpoint that routes requests to the
+        configured backend (Ollama, OpenAI-compatible, or local model).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ChatCompletionRequest' }
+      responses:
+        '200':
+          description: Chat completion response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /api/v1/messages:
+    post:
+      tags: [Anthropic]
+      summary: Anthropic-compatible messages
+      description: Compatible with the Anthropic Messages API surface; usable with the Anthropic SDK and Claude Code.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              properties:
+                model: { type: string }
+                max_tokens: { type: integer }
+                messages:
+                  type: array
+                  items: { $ref: '#/components/schemas/Message' }
+      responses:
+        '200':
+          description: Anthropic-compatible messages response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /ollama/api/tags:
+    get:
+      tags: [Ollama]
+      summary: List Ollama models (passthrough)
+      responses:
+        '200':
+          description: List of available Ollama models from the upstream daemon.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /ollama/api/generate:
+    post:
+      tags: [Ollama]
+      summary: Generate completion via Ollama (passthrough)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              properties:
+                model: { type: string }
+                prompt: { type: string }
+                stream: { type: boolean }
+      responses:
+        '200':
+          description: Ollama generation response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /ollama/api/chat:
+    post:
+      tags: [Ollama]
+      summary: Chat via Ollama (passthrough)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              properties:
+                model: { type: string }
+                messages:
+                  type: array
+                  items: { $ref: '#/components/schemas/Message' }
+      responses:
+        '200':
+          description: Ollama chat response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: |
+        Bearer token: Open WebUI session token or per-user API key. Each API key
+        inherits the permissions of the user who created it.
+  schemas:
+    Message:
+      type: object
+      properties:
+        role:
+          type: string
+          enum: [system, user, assistant, tool]
+        content:
+          type: string
+      required: [role, content]
+    ChatCompletionRequest:
+      type: object
+      additionalProperties: true
+      properties:
+        model: { type: string }
+        messages:
+          type: array
+          items: { $ref: '#/components/schemas/Message' }
+        stream: { type: boolean }
+        temperature: { type: number }
+        max_tokens: { type: integer }
