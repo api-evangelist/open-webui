@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open WebUI API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Chat",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Chat completions (OpenAI-compatible)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3000/api/chat/completions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OpenAI-compatible chat completions endpoint that routes requests to the\nconfigured backend (Ollama, OpenAI-compatible, or local model).\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Anthropic",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Anthropic-compatible messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3000/api/v1/messages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Compatible with the Anthropic Messages API surface; usable with the Anthropic SDK and Claude Code."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Ollama",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Ollama models (passthrough)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3000/ollama/api/tags"
+          },
+          "docs": "List Ollama models (passthrough)"
+        },
+        {
+          "info": {
+            "name": "Generate completion via Ollama (passthrough)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3000/ollama/api/generate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate completion via Ollama (passthrough)"
+        },
+        {
+          "info": {
+            "name": "Chat via Ollama (passthrough)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3000/ollama/api/chat",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Chat via Ollama (passthrough)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
