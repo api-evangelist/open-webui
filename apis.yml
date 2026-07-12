@@ -43,6 +43,10 @@ apis:
       - type: Reference
         url: https://docs.openwebui.com/getting-started/api-endpoints
 common:
+  - type: DomainSecurity
+    url: security/open-webui-domain-security.yml
+  - type: Authentication
+    url: authentication/open-webui-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/open-webui
   - type: Website
@@ -57,6 +61,8 @@ common:
     url: rate-limits/open-webui-rate-limits.yml
   - type: FinOps
     url: finops/open-webui-finops.yml
+  - url: https://openwebui.com/blog
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

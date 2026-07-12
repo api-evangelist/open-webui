@@ -1,0 +1,15 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/open-webui-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  description: |-
+    Bearer token: Open WebUI session token or per-user API key. Each API key
+    inherits the permissions of the user who created it.
+  sources:
+  - openapi/open-webui-openapi.yml
