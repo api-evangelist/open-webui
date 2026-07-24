@@ -1,0 +1,87 @@
+openapi: 3.1.0
+info:
+  title: Open WebUI Anthropic API
+  description: 'REST API exposed by a self-hosted Open WebUI instance. Endpoints include an
+
+    OpenAI-compatible chat completions surface, an Anthropic-compatible messages
+
+    endpoint, and a passthrough proxy for native Ollama endpoints. Authentication
+
+    uses a Bearer token (Open WebUI session token or a per-user API key); each
+
+    API key inherits the permissions of the user who created it.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Open WebUI Documentation
+    url: https://docs.openwebui.com/
+servers:
+- url: http://localhost:3000
+  description: Default local Open WebUI deployment
+- url: https://{host}
+  description: User-deployed Open WebUI instance
+  variables:
+    host:
+      default: openwebui.example.com
+security:
+- BearerAuth: []
+tags:
+- name: Anthropic
+paths:
+  /api/v1/messages:
+    post:
+      tags:
+      - Anthropic
+      summary: Anthropic-compatible messages
+      description: Compatible with the Anthropic Messages API surface; usable with the Anthropic SDK and Claude Code.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              properties:
+                model:
+                  type: string
+                max_tokens:
+                  type: integer
+                messages:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Message'
+      responses:
+        '200':
+          description: Anthropic-compatible messages response.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+components:
+  schemas:
+    Message:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+          - system
+          - user
+          - assistant
+          - tool
+        content:
+          type: string
+      required:
+      - role
+      - content
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Bearer token: Open WebUI session token or per-user API key. Each API key
+
+        inherits the permissions of the user who created it.
+
+        '
