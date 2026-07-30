@@ -7,7 +7,20 @@ description: >-
   backends). It exposes a REST API for chats, models, prompts, knowledge (RAG), users, and tools.
   Distributed under a modified BSD-3-Clause license; primarily run via Docker or pip on your own
   infrastructure.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/open-webui.png
 tags:
   - LLM
   - Open Source
@@ -19,29 +32,59 @@ created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
 apis:
-  - aid: open-webui:platform
-    name: Open WebUI API
-    description: >-
-      REST API exposed by a self-hosted Open WebUI instance. Endpoints cover chat completions (proxying
-      upstream backends like Ollama or OpenAI-compatible servers), models, prompts, knowledge bases,
-      files, RAG, users, auth, and tools. Authentication uses the Open WebUI session token or per-user API
-      keys. The base URL is wherever you deploy Open WebUI (commonly http://localhost:3000/api/v1).
-    humanURL: https://docs.openwebui.com/getting-started/api-endpoints
-    baseURL: http://localhost:3000/api/v1
-    tags:
-      - Chat
-      - Models
-      - Prompts
-      - RAG
-      - Knowledge
-      - Tools
-    properties:
-      - type: Documentation
-        url: https://docs.openwebui.com/
-      - type: GitHub
-        url: https://github.com/open-webui/open-webui
-      - type: Reference
-        url: https://docs.openwebui.com/getting-started/api-endpoints
+- aid: open-webui:platform
+  name: Open WebUI API
+  description: >-
+    REST API exposed by a self-hosted Open WebUI instance. Endpoints cover chat completions (proxying
+    upstream backends like Ollama or OpenAI-compatible servers), models, prompts, knowledge bases, files,
+    RAG, users, auth, and tools. Authentication uses the Open WebUI session token or per-user API keys.
+    The base URL is wherever you deploy Open WebUI (commonly http://localhost:3000/api/v1).
+  humanURL: https://docs.openwebui.com/getting-started/api-endpoints
+  baseURL: http://localhost:3000/api/v1
+  tags:
+  - Chat
+  - Models
+  - Prompts
+  - RAG
+  - Knowledge
+  - Tools
+  properties:
+  - type: Documentation
+    url: https://docs.openwebui.com/
+  - type: GitHub
+    url: https://github.com/open-webui/open-webui
+  - type: Reference
+    url: https://docs.openwebui.com/getting-started/api-endpoints
+- aid: open-webui:open-webui-anthropic-api
+  name: Open WebUI Anthropic API
+  description: The Anthropic API from Open WebUI — 1 operation(s) for anthropic.
+  humanURL: https://docs.openwebui.com/getting-started/api-endpoints
+  baseURL: http://localhost:3000/api/v1
+  tags:
+  - Anthropic
+  properties:
+  - type: OpenAPI
+    url: openapi/open-webui-anthropic-api-openapi.yml
+- aid: open-webui:open-webui-chat-api
+  name: Open WebUI Chat API
+  description: The Chat API from Open WebUI — 1 operation(s) for chat.
+  humanURL: https://docs.openwebui.com/getting-started/api-endpoints
+  baseURL: http://localhost:3000/api/v1
+  tags:
+  - Chat
+  properties:
+  - type: OpenAPI
+    url: openapi/open-webui-chat-api-openapi.yml
+- aid: open-webui:open-webui-ollama-api
+  name: Open WebUI Ollama API
+  description: The Ollama API from Open WebUI — 3 operation(s) for ollama.
+  humanURL: https://docs.openwebui.com/getting-started/api-endpoints
+  baseURL: http://localhost:3000/api/v1
+  tags:
+  - Ollama
+  properties:
+  - type: OpenAPI
+    url: openapi/open-webui-ollama-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/open-webui-agentic-access.yml
