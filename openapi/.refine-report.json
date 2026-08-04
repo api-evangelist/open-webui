@@ -1,0 +1,18 @@
+{
+  "provider": "open-webui",
+  "sources": [
+    "open-webui-anthropic-api-openapi.yml",
+    "open-webui-chat-api-openapi.yml",
+    "open-webui-ollama-api-openapi.yml"
+  ],
+  "outputs": [
+    "open-webui-anthropic-api-openapi.yml",
+    "open-webui-chat-api-openapi.yml",
+    "open-webui-ollama-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
