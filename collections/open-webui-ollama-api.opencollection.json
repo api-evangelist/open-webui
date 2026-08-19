@@ -1,0 +1,65 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open WebUI Anthropic Ollama API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ollama",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Ollama models (passthrough)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3000/ollama/api/tags"
+          },
+          "docs": "List Ollama models (passthrough)"
+        },
+        {
+          "info": {
+            "name": "Generate completion via Ollama (passthrough)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3000/ollama/api/generate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate completion via Ollama (passthrough)"
+        },
+        {
+          "info": {
+            "name": "Chat via Ollama (passthrough)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3000/ollama/api/chat",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Chat via Ollama (passthrough)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

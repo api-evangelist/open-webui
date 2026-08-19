@@ -1,0 +1,144 @@
+{
+  "item": [
+    {
+      "id": "cf66ed32-71a7-44e1-97c4-daec33e73b57",
+      "name": "Chat",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cf23cec2-ce46-4fde-aedf-93cf54505619",
+          "name": "Chat completions (OpenAI-compatible)",
+          "request": {
+            "name": "Chat completions (OpenAI-compatible)",
+            "description": {
+              "content": "OpenAI-compatible chat completions endpoint that routes requests to the\nconfigured backend (Ollama, OpenAI-compatible, or local model).\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "chat",
+                "completions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"<string>\",\n  \"messages\": [\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\"\n    }\n  ],\n  \"stream\": \"<boolean>\",\n  \"temperature\": \"<number>\",\n  \"max_tokens\": \"<integer>\",\n  \"key_0\": 6433.489547212833,\n  \"key_1\": 9570\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "894ae0f0-a480-4fb8-b82a-05fc6648acab",
+              "name": "Chat completion response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "chat",
+                    "completions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model\": \"<string>\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"string\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"string\"\n    }\n  ],\n  \"stream\": \"<boolean>\",\n  \"temperature\": \"<number>\",\n  \"max_tokens\": \"<integer>\",\n  \"key_0\": 1528\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 2281\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3000",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3f5cd53a-cfbe-4096-8cb8-d90fbe9a7bbd",
+    "name": "Open WebUI Anthropic Chat API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API exposed by a self-hosted Open WebUI instance. Endpoints include an\nOpenAI-compatible chat completions surface, an Anthropic-compatible messages\nendpoint, and a passthrough proxy for native Ollama endpoints. Authentication\nuses a Bearer token (Open WebUI session token or a per-user API key); each\nAPI key inherits the permissions of the user who created it.\n\n\nContact Support:\n Name: Open WebUI Documentation",
+      "type": "text/plain"
+    }
+  }
+}
