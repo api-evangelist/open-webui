@@ -23,6 +23,13 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/open-webui.png
 tags:
   - LLM
+  - Open-Source
+  - Self-Hosted
+  - Ollama
+  - Chat UI
+  - RAG
+tags_raw:
+  - LLM
   - Open Source
   - Self-Hosted
   - Ollama
