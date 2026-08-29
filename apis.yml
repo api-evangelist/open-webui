@@ -7,6 +7,18 @@ description: >-
   backends). It exposes a REST API for chats, models, prompts, knowledge (RAG), users, and tools.
   Distributed under a modified BSD-3-Clause license; primarily run via Docker or pip on your own
   infrastructure.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
