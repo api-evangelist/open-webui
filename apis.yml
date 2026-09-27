@@ -8,16 +8,21 @@ description: >-
   Distributed under a modified BSD-3-Clause license; primarily run via Docker or pip on your own
   infrastructure.
 deliveryModel:
-  model: saas
-  open_source: false
+  model: unknown
+  license_evidence:
+    repo: open-webui/open-webui
+    spdx: NOASSERTION
+    stars: 153135
+  open_source: unknown
   commercial: true
   callable_host: false
-  label: Hosted service · you call their endpoint
-  confidence: medium
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
   source:
   - openapi
   - pricing
-  generated: '2026-08-28'
+  - repository-unlicensed
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: unknown
@@ -37,7 +42,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/open-webui.png
 tags:
   - LLM
-  - Open-Source
+  - Open Source
   - Self-Hosted
   - Ollama
   - Chat UI
@@ -49,6 +54,7 @@ tags_raw:
   - Ollama
   - Chat UI
   - RAG
+  - Open-Source
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.23'
