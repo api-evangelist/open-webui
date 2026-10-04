@@ -92,16 +92,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/open-webui-anthropic-api-openapi.yml
-- aid: open-webui:open-webui-chat-api
-  name: Open WebUI Chat API
-  description: The Chat API from Open WebUI — 1 operation(s) for chat.
-  humanURL: https://docs.openwebui.com/getting-started/api-endpoints
-  baseURL: http://localhost:3000/api/v1
-  tags:
-  - Chat
-  properties:
-  - type: OpenAPI
-    url: openapi/open-webui-chat-api-openapi.yml
 - aid: open-webui:open-webui-ollama-api
   name: Open WebUI Ollama API
   description: The Ollama API from Open WebUI — 3 operation(s) for ollama.
@@ -112,6 +102,16 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/open-webui-ollama-api-openapi.yml
+- aid: open-webui:open-webui-chat-completions-api
+  name: Open WebUI Chat Completions API
+  description: The Chat Completions API from Open WebUI — 1 operation(s) for chat completions.
+  humanURL: https://docs.openwebui.com/getting-started/api-endpoints
+  baseURL: http://localhost:3000/api/v1
+  tags:
+  - Chat Completions
+  properties:
+  - type: OpenAPI
+    url: openapi/open-webui-chat-completions-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/open-webui-agentic-access.yml

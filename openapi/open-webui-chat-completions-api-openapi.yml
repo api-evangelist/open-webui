@@ -25,12 +25,12 @@ servers:
 security:
 - BearerAuth: []
 tags:
-- name: Chat
+- name: Chat Completions
 paths:
   /api/chat/completions:
     post:
       tags:
-      - Chat
+      - Chat Completions
       summary: Chat completions (OpenAI-compatible)
       description: 'OpenAI-compatible chat completions endpoint that routes requests to the
 
