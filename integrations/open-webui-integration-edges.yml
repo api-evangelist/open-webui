@@ -15,7 +15,7 @@ edges:
     note: 'open-webui declares OpenAI compatibility: ''OpenAI-compatible chat completions surface, an Anthropic-compatible
       messages'''
     detected_by: sweep-model-routing.py
-    detected: '2026-10-13'
+    detected: '2026-10-15'
   detected_by: sweep-model-routing.py
   first_seen: '2026-10-13'
 generated: '2026-10-13'
