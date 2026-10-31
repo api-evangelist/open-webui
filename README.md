@@ -1,4 +1,4 @@
-# Open WebUI (open-webui)
+# Open WebUI
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,59 +66,119 @@
 
 Open WebUI is a self-hosted, open-source web UI for LLMs (notably Ollama and OpenAI-compatible backends). It exposes a REST API for chats, models, prompts, knowledge (RAG), users, and tools. Distributed under a modified BSD-3-Clause license; primarily run via Docker or pip on your own infrastructure.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/open-webui/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/open-webui/refs/heads/main/apis.yml)
+**Areas:** LLM · Open Source · Self-Hosted · Ollama · Chat UI · RAG
 
-## Tags
+## Open WebUI on APIs.io
 
-- LLM
-- Open Source
-- Self-Hosted
-- Ollama
-- Chat UI
-- RAG
+Everything profiled for Open WebUI is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/open-webui/](https://apis.io/providers/open-webui/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (4)
 
-- **Created:** 2026-05-08
-- **Modified:** 2026-05-08
+- [Open WebUI API](https://apis.io/apis/open-webui/platform/) — REST API exposed by a self-hosted Open WebUI instance. Endpoints cover chat completions (proxying upstream backends like Ollama or OpenAI-compatible…
+- [Open WebUI Anthropic API](https://apis.io/apis/open-webui/open-webui-anthropic-api/) — The Anthropic API from Open WebUI — 1 operation(s) for anthropic.
+- [Open WebUI Ollama API](https://apis.io/apis/open-webui/open-webui-ollama-api/) — The Ollama API from Open WebUI — 3 operation(s) for ollama.
+- [Open WebUI Chat Completions API](https://apis.io/apis/open-webui/open-webui-chat-completions-api/) — The Chat Completions API from Open WebUI — 1 operation(s) for chat completions.
 
-## APIs
+### Published properties
 
-### Open WebUI API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-REST API exposed by a self-hosted Open WebUI instance. Endpoints cover chat completions (proxying upstream backends like Ollama or OpenAI-compatible servers), models, prompts, knowledge bases, files, RAG, users, auth, and tools. Authentication uses the Open WebUI session token or per-user API keys. The base URL is wherever you deploy Open WebUI (commonly http://localhost:3000/api/v1).
+#### Agentic access (1)
 
-- **Human URL:** [https://docs.openwebui.com/getting-started/api-endpoints](https://docs.openwebui.com/getting-started/api-endpoints)
-- **Base URL:** `http://localhost:3000/api/v1`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Open Webui Agentic Access](https://apis.io/agentic-access/open-webui/open-webui-agentic-access/)
 
-- Chat
-- Models
-- Prompts
-- RAG
-- Knowledge
-- Tools
+#### Collections (4)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://docs.openwebui.com/)
-- [Git Hub](https://github.com/open-webui/open-webui)
-- [Reference](https://docs.openwebui.com/getting-started/api-endpoints)
-- [Postman Collection](collections/open-webui.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/open-webui.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Open WebUI API](https://apis.io/collections/open-webui/open-open-webui/)
+- [Open WebUI Anthropic API](https://apis.io/collections/open-webui/open-open-webui-anthropic-api/)
+- [Open WebUI Anthropic Chat API](https://apis.io/collections/open-webui/open-open-webui-chat-api/)
+- [Open WebUI Anthropic Ollama API](https://apis.io/collections/open-webui/open-open-webui-ollama-api/)
 
-## Common Properties
+#### Security (2)
 
-- [LinkedIn](https://www.linkedin.com/company/open-webui)
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Open Webui Authentication](https://apis.io/security/open-webui/open-webui-authentication/)
+- [Open Webui Domain Security](https://apis.io/security/open-webui/open-webui-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Open Webui Plans Pricing](https://apis.io/plans/open-webui/open-webui-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Open Webui Rate Limits](https://apis.io/rate-limits/open-webui/open-webui-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Open Webui Finops](https://apis.io/finops/open-webui/open-webui-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://openwebui.com/)
-- [Developer Portal](https://docs.openwebui.com/)
-- [Open Source](https://github.com/open-webui/open-webui)
-- [Plans](plans/open-webui-plans-pricing.yml)
-- [Rate Limits](rate-limits/open-webui-rate-limits.yml)
-- [Fin Ops](finops/open-webui-finops.yml)
+- [Blog](https://openwebui.com/blog)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 25.6** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 42.9 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 40.5 |
+| Access clarity | 5.3 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/open-webui/](https://apis.io/providers/open-webui/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Open WebUI: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/open-webui/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
